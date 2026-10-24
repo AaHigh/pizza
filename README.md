@@ -16,13 +16,10 @@ Eaters pay **$5, all you can eat**. That is the only price in the event.
 
 - Cooking is free. Ovens are provided by Aaron. Ingredients are provided
   free by the nonprofit organization. A cook invests time only.
-- Each person who cooks one or more pizzas is paid **$5 for labor**,
-  independently of any prizes. The per-pizza labor rate is variable: $5
-  divided by the number of pizzas that cook makes for the event. A cook
-  making five pizzas earns $1 per pizza; a cook making ten pizzas earns
-  $0.50 per pizza. The rate is a function of how many cooks and how many
-  eaters there are, set so a cook cooking enough pizza for the event
-  earns $5.
+- Cooks are not paid labor. A cook's benefit is eating for free and
+  cooking with ingredients provided free. Tips are voluntary gifts from
+  anyone, independent of prizes and independent of how well a cook
+  cooked; a tip is a gift, not a payment and not a prize.
 - Eaters and ingredient-bringers contribute at least **$5 net**: cash,
   listed ingredients, or both.
 - The app publishes the necessary ingredients list with a value per item.
@@ -32,7 +29,7 @@ Eaters pay **$5, all you can eat**. That is the only price in the event.
 - Before the event, cooks post their ingredient lists online. Anyone who
   signs up to bring a listed ingredient gets that value credited. What
   helpers bring goes to the organization for the cooks.
-- Eater money covers ingredients and labor first. Any money left after
+- Eater money covers ingredients first. Any money left after
   costs goes to the cooks as prizes. Nobody takes a profit.
 - The $5 works because the average eater does not eat a whole pizza.
 
@@ -96,7 +93,8 @@ dough.
 - Participants RSVP in the app. Cooks RSVP as Cooks; anyone bringing
   ingredients RSVPs against a cook's ingredient list.
 - **Cooks eat for free.** A cook who brings ingredients is reimbursed for
-  them at their listed value.
+  them at their listed value. Tips are voluntary gifts from anyone,
+  independent of prizes and independent of how well a cook cooked.
 - An eater may eat for free by bringing necessary ingredients from a
   cook's list, credited at listed value up to the $5.
 - Each cook's list states, per item, the credited value (which may be per
