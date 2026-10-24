@@ -1,2 +1,5 @@
+# Drops are for transport, not the repo. Never check in zip archives.
 *.zip
 
+# OS junk
+.DS_Store
