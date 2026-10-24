@@ -67,6 +67,25 @@ scratch dough may use the savings elsewhere within the category budget.
 A cook can win on recipe alone, and scratch dough can beat store-bought
 dough.
 
+## Judging
+
+- Judging happens in the app.
+- Every pizza is cut into six slices, as near to equal as reasonably
+  possible.
+- Each slice is judged independently by the person eating it. One slice,
+  one judgment, because slices can vary.
+- Each slice that is eaten counts with equal weight toward the pizza's
+  judgment. A slice that is not eaten does not receive a zero value; it
+  simply reduces the numerator by one, so the pizza is judged only on the
+  slices actually eaten.
+- Each slice is worth about $1, give or take. Six slices is about $6 of
+  value, so a $5 eater who eats a whole pizza comes out ahead. That is by
+  design: everyone comes out ahead.
+- Eating more than average is covered socially: extra cash into
+  ingredients, a friend who eats less, or simply being OK with eating more
+  than average. If everyone comes up short, scale everything up to keep
+  everybody happy.
+
 ## Open items
 
 - Meat Lovers budget $7 is a proposed value, to confirm.

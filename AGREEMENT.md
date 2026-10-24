@@ -15,3 +15,9 @@ BLOCK PARTY PIZZA COMPETITION, COOK AGREEMENT
 13. There is no cap on prizes.
 14. Categories: Pepperoni, Vegetarian, Meat Lovers, Supreme, Cheese. Cheese is broad: cheese pizza, cheesy bread, cheese dips and dipping sauces all qualify.
 15. Dough may be made from scratch or bought. Piemonte's Italian Delicatessen dough is listed in the app at its real price as the known neighborhood baseline. Scratch dough is budgeted at its flour, water, and yeast cost. A cook using scratch dough may use the savings elsewhere within the category budget.
+16. Judging happens in the app.
+17. Every pizza is cut into six slices, as near to equal in size as reasonably possible.
+18. Each slice is judged independently, by the person eating it: one slice, one judgment. Slices can vary, so each is judged on its own.
+19. Each slice that is eaten counts with equal weight toward the pizza's judgment. A slice that is not eaten does not receive a zero value; it simply reduces the numerator by one, so the pizza is judged only on the slices actually eaten.
+20. Each slice is worth about $1, give or take. A whole pizza of six slices is worth about $6, so a $5 eater who eats a whole pizza comes out ahead.
+21. Eating more than average is balanced socially: throw extra cash into ingredients, have a friend who eats less, or simply be OK eating more than average. If everyone comes up short and wants more pizza than there is, scale everything up to keep everybody happy.
