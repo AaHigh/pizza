@@ -16,8 +16,13 @@ Eaters pay **$5, all you can eat**. That is the only price in the event.
 
 - Cooking is free. Ovens are provided by Aaron. Ingredients are provided
   free by the nonprofit organization. A cook invests time only.
-- Cooks are paid **$5 per pizza cooked**, for labor, independently of any
-  prizes.
+- Each person who cooks one or more pizzas is paid **$5 for labor**,
+  independently of any prizes. The per-pizza labor rate is variable: $5
+  divided by the number of pizzas that cook makes for the event. A cook
+  making five pizzas earns $1 per pizza; a cook making ten pizzas earns
+  $0.50 per pizza. The rate is a function of how many cooks and how many
+  eaters there are, set so a cook cooking enough pizza for the event
+  earns $5.
 - Eaters and ingredient-bringers contribute at least **$5 net**: cash,
   listed ingredients, or both.
 - The app publishes the necessary ingredients list with a value per item.
@@ -85,6 +90,38 @@ dough.
   ingredients, a friend who eats less, or simply being OK with eating more
   than average. If everyone comes up short, scale everything up to keep
   everybody happy.
+
+## App and ingredients
+
+- Participants RSVP in the app. Cooks RSVP as Cooks; anyone bringing
+  ingredients RSVPs against a cook's ingredient list.
+- **Cooks eat for free.** A cook who brings ingredients is reimbursed for
+  them at their listed value.
+- An eater may eat for free by bringing necessary ingredients from a
+  cook's list, credited at listed value up to the $5.
+- Each cook's list states, per item, the credited value (which may be per
+  ounce or per unit), any minimum quality or brand requirement, and where
+  the item must be purchased to gain credit. If a cook states no brand
+  requirement, any brand qualifies. A picky cook may exclude a brand; a
+  cook who is not picky may accept cupboard items and improvise with
+  them, which is part of the skill.
+- Ingredients are valued at the time they are brought to the table, by
+  barcode scan in the app, which determines both the credited value and
+  whether the item qualifies at all. Items must not be expired. Cupboard
+  items qualify when they match a listed item. Nothing in the design
+  encourages anyone to break the law: cupboard contributions are things
+  the person already has and that are not expired, and benefit purchases
+  are the person's own lawful purchases.
+- To keep it simple, there is a single frame of reference for value:
+  Walmart prices, entered into the app at the beginning from the Walmart
+  app, manually or automated; the entry method does not matter. The
+  Walmart price is the credited value for an item regardless of where it
+  was purchased. If a person paid more than the Walmart price, they do
+  not receive full credit; they receive the Walmart price. If a person
+  found the item cheaper than Walmart, they may keep the margin;
+  monetizing the margin is allowed. The exception is items that cannot
+  be found at Walmart, such as the dough, which is listed from its
+  neighborhood source.
 
 ## Open items
 
