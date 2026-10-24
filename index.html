@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Block Party Pizza Competition — South Tower District, Fresno</title>
+<!--
+  HOT & HAPPY PIZZA! — Block Party Pizza Competition
+  Version 0.1: presentation page today, app interface tomorrow.
+  The sections below are laid out as the future app views:
+  Cook RSVP, ingredient lists, barcode check-in, and slice judging
+  will attach to the marked hooks as the app is built.
+  No external dependencies: this file works from any static host.
+-->
+<style>
+  :root {
+    --night: #101018;
+    --panel: #1b1b2e;
+    --cream: #fff6e3;
+    --gold: #ffb700;
+    --orange: #ff7a1a;
+    --teal: #2ec4b6;
+    --red: #ff4d4d;
+    --muted: #b9b9cc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--cream);
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; }
+  /* Arcade 3D display type: stacked shadows, no webfont needed. */
+  .display {
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 1.02;
+    color: var(--gold);
+    text-shadow:
+      0 1px 0 #c77d00,
+      0 2px 0 #a36400,
+      0 3px 0 #7d4d00,
+      0 4px 0 #573600,
+      0 6px 14px rgba(0, 0, 0, 0.65);
+  }
+  header { text-align: center; padding: 24px 0 8px; }
+  header h1 { font-size: clamp(2rem, 7vw, 4rem); margin: 0; }
+  header .sub {
+    margin-top: 10px;
+    font-size: 1.05rem;
+    color: var(--cream);
+  }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    background: var(--gold);
+    color: #1a1200;
+  }
+  .badge.alt { background: var(--teal); color: #03201d; }
+  figure { margin: 28px 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  figcaption { margin-top: 8px; font-size: 0.9rem; color: var(--muted); text-align: center; }
+  h2 {
+    font-size: 1.6rem;
+    margin: 44px 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    text-shadow: 0 2px 0 #7d4d00, 0 4px 10px rgba(0, 0, 0, 0.6);
+  }
+  h3 { margin: 20px 0 6px; color: var(--cream); }
+  p { margin: 8px 0; }
+  .muted { color: var(--muted); }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+  @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr 1fr; } }
+  .card {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 18px;
+    border-top: 5px solid var(--gold);
+  }
+  .card:nth-child(2) { border-top-color: var(--teal); }
+  .card:nth-child(3) { border-top-color: var(--red); }
+  .card h3 { margin-top: 0; text-transform: uppercase; letter-spacing: 0.02em; }
+  .card p { color: var(--cream); }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; background: var(--panel); border-radius: 12px; overflow: hidden; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #2c2c44; }
+  th { text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--gold); }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-weight: 800; color: var(--gold); white-space: nowrap; }
+  .flag { color: var(--gold); font-size: 0.9rem; }
+  ul { margin: 8px 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  .callout {
+    background: var(--panel);
+    border-left: 5px solid var(--teal);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 18px;
+    margin: 18px 0;
+  }
+  .callout strong { color: var(--gold); }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid #2c2c44;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1 class="display">Block Party Pizza Competition</h1>
+    <p class="sub">South Tower District, Fresno &middot; Night Block Party<br>
+    Run by the nonprofit <strong>HOT &amp; HAPPY PIZZA!</strong> &middot; Nobody takes a profit.</p>
+    <div class="badges">
+      <span class="badge">$5 ALL YOU CAN EAT</span>
+      <span class="badge alt">OVENS PROVIDED</span>
+      <span class="badge alt">EVERYONE COMES OUT AHEAD</span>
+    </div>
+  </header>
+
+  <figure>
+    <img src="block-party-pizza-flyer.webp" alt="Block Party Pizza Competition flyer">
+    <figcaption>The flyer. One price in the whole event: $5 a head, all you can eat.</figcaption>
+  </figure>
+
+  <!-- v0.1 hook: the three entry views of the future app -->
+  <h2>Three ways in</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Cook</h3>
+      <p>Ingredients free. Ovens provided. <strong>Cooks eat free.</strong> Win prizes too.</p>
+      <p class="muted">Cooks are not paid labor. A cook's benefit is eating free and cooking with ingredients provided free.</p>
+    </div>
+    <div class="card">
+      <h3>Bring an ingredient</h3>
+      <p>Bring it from the list. It counts toward your $5.</p>
+      <p class="muted">Bring $5 or more in listed value and you are covered. Bring less and cash tops up the rest.</p>
+    </div>
+    <div class="card">
+      <h3>Just eat</h3>
+      <p>$5, all you can eat.</p>
+      <p class="muted">Nobody eats for zero. Every eater or bringer contributes at least $5 net, in cash, listed ingredients, or both.</p>
+    </div>
+  </div>
+
+  <figure>
+    <img src="block-party-pizza-how-it-works.webp" alt="How the Block Party Pizza Competition works">
+    <figcaption>How it works: cook, bring, or just eat.</figcaption>
+  </figure>
+
+  <h2>Where the money goes</h2>
+  <p>Eater money covers <strong>ingredients first</strong>. Whatever is left after costs joins the prizes. The books balance, nonprofit-style, and no profit is kept.</p>
+  <p>The reason $5 a head can cover it: the average eater eats less than a whole pizza. Slices across many pizzas, not one pizza per person, is what makes the math work.</p>
+  <div class="callout">
+    <strong>Tips are separate.</strong> Anybody can tip a cook if they want to. A tip is a gift, independent of the prizes and independent of how well the cook cooked. It is not a second scoreboard and it is not a payment.
+  </div>
+
+  <h2>Categories and budgets</h2>
+  <p>The figures below are <strong>maximum ingredient budgets per pizza, not prices</strong>. A competition pizza must stay inside its category budget. Go over, and it is not playing fair, and the pizza is not eligible.</p>
+  <table>
+    <tr><th>Category</th><th>Max budget</th><th>Notes</th></tr>
+    <tr><td>Pepperoni</td><td class="num">$6</td><td></td></tr>
+    <tr><td>Vegetarian</td><td class="num">$6</td><td></td></tr>
+    <tr><td>Meat Lovers</td><td class="num">$7</td><td><span class="flag">Proposed value, to confirm.</span></td></tr>
+    <tr><td>Supreme</td><td class="num">$8</td><td></td></tr>
+    <tr><td>Cheese</td><td class="num">$5</td><td>Broad: cheese pizza, cheesy bread, cheese dips and dipping sauces.</td></tr>
+  </table>
+  <p><strong>Size is free inside the budget</strong> (target 14&ndash;16 inches, undecided). A bigger pizza or a smaller pizza with finer ingredients: that tradeoff is the skill judges weigh.</p>
+  <p><strong>Dough:</strong> scratch or bought. Piemonte's Italian Delicatessen dough (616 E Olive Ave, Fresno) is the app's known-quantity neighborhood baseline. Scratch dough is budgeted at flour, water, and yeast cost, and the savings may go elsewhere inside the category budget. A cook can win on recipe alone, and scratch can beat store-bought.</p>
+
+  <h2>The competition layer (optional)</h2>
+  <p>You can come, cook, and eat without ever entering it. The base event works fine on its own. If you do enter:</p>
+  <ul>
+    <li>Staking is <strong>per pizza</strong>, declared in the app <strong>before</strong> you begin building that pizza. Enter none, one, or any number of your pizzas, at an independent amount per pizza.</li>
+    <li>Once committed, the stake is <strong>binding</strong>. You follow through whether the pizza comes out beautiful or not, so nobody stakes only the pizzas that already turned out great.</li>
+    <li>The stake sizes the prize. <strong>Skill decides the winner.</strong> A bigger stake does not buy a better score. There is <strong>no cap</strong> on prizes.</li>
+  </ul>
+
+  <!-- v0.1 hook: the slice judging view of the future app -->
+  <h2>Judging</h2>
+  <p>Judging happens in the app.</p>
+  <ul>
+    <li>Every pizza is cut into <strong>six slices</strong>, as near to equal as reasonably possible.</li>
+    <li>Each slice is judged <strong>independently, by the person eating it</strong>. One slice, one judgment. Slices can vary, so each earns its own score instead of the whole pizza getting one blanket number.</li>
+    <li>Each slice that is eaten counts with <strong>equal weight</strong> toward the pizza's judgment.</li>
+    <li>A slice nobody eats does <strong>not</strong> score a zero. It simply reduces the numerator by one. The pizza is judged only on the slices actually eaten.</li>
+  </ul>
+  <div class="callout">
+    <strong>The slice math is the deal.</strong> Each slice is worth about $1, give or take. Six slices is about $6 of value. You paid $5. Eat a whole pizza and you came out ahead, on purpose.
+  </div>
+
+  <!-- v0.1 hook: RSVP, ingredient lists, and barcode check-in views -->
+  <h2>The app</h2>
+  <ul>
+    <li><strong>RSVP:</strong> cooks RSVP as Cooks. Anyone bringing ingredients RSVPs against a cook's ingredient list.</li>
+    <li><strong>Cooks eat free.</strong> A cook who brings ingredients is reimbursed for them at listed value.</li>
+    <li><strong>Eaters can eat for free</strong> by bringing necessary ingredients off a cook's list, credited at listed value up to the $5.</li>
+    <li><strong>Each cook's list states, per item:</strong> the credited value (per ounce or per unit, like tomato sauce by the ounce), any minimum quality or brand requirement, and where it must be purchased to gain credit. No brand requirement stated means any brand qualifies. A picky cook may exclude a brand; a cook who is not picky may accept cupboard items and improvise with them. That improvisation is part of the skill.</li>
+    <li><strong>Value is set at the table.</strong> The app scans the barcode when the ingredient arrives, and the scan decides what it is worth and whether it qualifies at all. Nobody gains by bringing something the cook cannot use, and no cook gets an unfair deal.</li>
+    <li><strong>Cupboard and benefit purchases, lawfully:</strong> if you already have something in your cupboard and it is not expired, you can clear it out and eat on it. Nothing here asks anyone to break the law: your own things, your own lawful purchases, nothing expired.</li>
+    <li><strong>One frame of reference for value: Walmart prices.</strong> Prices go into the app at the beginning, taken from the Walmart app, manually or automated; the method does not matter. The Walmart price is the credited value regardless of where the item was purchased. Paid more than Walmart? You get Walmart credit, not what you paid. Found it cheaper than Walmart? You keep the margin. Bargain hunting is rewarded, not punished.</li>
+    <li><strong>The dough exception:</strong> items that cannot be found at Walmart, such as the dough, are listed from their neighborhood source.</li>
+  </ul>
+
+  <h2>Keeping the balance</h2>
+  <p>Eating more than average is covered socially: throw extra cash into ingredients, have a friend who eats less, or simply be OK with eating more than average. If everyone comes up short and wants more pizza than there is, that is the signal to <strong>scale everything up</strong>: more pizzas, more ingredients, keep everybody happy. No new rules, just more of the same thing.</p>
+
+  <h2>The point of it</h2>
+  <p>The constraints are the training. A cook who learns to make a great pizza inside a budget, on a declared stake, judged against other cooks doing the same, gets better every time. Repeat that across events and years, and the neighborhood produces connoisseurs. In ten years, the best pizza cooks in America come out of the Tower District, because practice under real economics is what makes mastery.</p>
+  <p class="muted">This competition is one facet of a larger platform, alongside CELLTOWER and the arcade game: verified skill, skill decides, voluntary stake sizes the win, real economic constraints, and reputation that compounds over time. The literacy transfers across facets.</p>
+
+  <h2>Open items</h2>
+  <ul>
+    <li>Meat Lovers budget ($7) is a proposed value, to confirm.</li>
+    <li>Piemonte's dough price is still needed.</li>
+    <li>Target pizza size (14&ndash;16 inches) is undecided.</li>
+    <li>Event date is not set.</li>
+  </ul>
+
+  <footer>
+    <p>Block Party Pizza Competition &middot; South Tower District, Fresno<br>
+    HOT &amp; HAPPY PIZZA! nonprofit &middot; No profit kept &middot; Everyone comes out ahead.</p>
+    <p>Version 0.1 &mdash; presentation today, app interface tomorrow.</p>
+  </footer>
+
+</div>
+</body>
+</html>

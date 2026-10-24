@@ -121,6 +121,14 @@ dough.
   be found at Walmart, such as the dough, which is listed from its
   neighborhood source.
 
+## Presentation
+
+- `index.html` in this repo is the presentation page and version 0.1 of
+  the app interface: the full model, the flyer, and the how-it-works
+  graphic in one page, laid out so the Cook RSVP, ingredient list,
+  barcode check-in, and slice judging views can attach to it as the app
+  is built. No external dependencies; it works from any static host.
+
 ## Open items
 
 - Meat Lovers budget $7 is a proposed value, to confirm.
