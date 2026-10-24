@@ -9,13 +9,13 @@ their lists before the event. Fill in real prices before publishing.
 - Cheese: $5
 - Pepperoni: $6
 - Vegetarian: $6
-- Meat Lovers: $7 (proposed, to confirm)
+- Meat Lovers: $8
 - Supreme: $8
 
 ## Dough baseline
 
-- Piemonte's Italian Delicatessen dough: price TBD (Piemonte's Italian
-  Delicatessen, 616 E Olive Ave, Fresno).
+- Piemonte's Italian Delicatessen dough: $2.20 placeholder, to confirm
+  (Piemonte's Italian Delicatessen, 616 E Olive Ave, Fresno).
 - Scratch dough: flour, water, yeast cost TBD.
 
 ## Ingredients by category (values TBD)

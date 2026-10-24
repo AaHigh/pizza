@@ -40,8 +40,9 @@ Eaters pay **$5, all you can eat**. That is the only price in the event.
 - Category ingredient budgets are **maximum ingredient costs per pizza,
   not prices**. A competition pizza must stay within its category budget.
   Exceeding the budget is not playing fair, and the pizza is not eligible.
-- Cooks may make any size pizza within the budget. Target size is 14 to
-  16 inches, undecided. Size versus ingredient quality is part of the
+- Cooks may make any size pizza within the budget, but people should
+  expect 8-inch pizzas. A cook may make a bigger pizza if he wants.
+  Size versus ingredient quality is part of the
   competition: within the same budget, a bigger pizza or finer ingredients
   is a choice judges may reward either way.
 - Judged competition uses the BetCube paradigm. Before you begin building
@@ -131,10 +132,5 @@ dough.
 
 ## Open items
 
-- Meat Lovers budget $7 is a proposed value, to confirm.
-- Piemonte's dough price: not found online, still needed.
-- Target pizza size 14 to 16 inches: undecided.
-- Event date: not set.
-- How-it-works graphic: held back from this package because its footer
-  still reads "EVERYONE PAYS $5" instead of "EATERS PAY $5". The flyer in
-  this package is correct.
+- Piemonte's dough price: $2.20 placeholder, to confirm (Piemonte's did not answer the phone 2026-10-24).
+- First event: Monday night, October 26, 2026, in front of my house.

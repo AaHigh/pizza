@@ -2,9 +2,9 @@ BLOCK PARTY PIZZA COMPETITION, COOK AGREEMENT
 
 1. Cooking is free. Ovens are provided. Ingredients are provided free by the nonprofit organization. A cook invests time only.
 2. Cooks are not paid labor. A cook's benefit is eating for free and cooking with ingredients provided free. Tips are voluntary gifts from anyone, independent of prizes and independent of how well a cook cooked; a tip is a gift, not a payment and not a prize.
-3. Category ingredient budgets are maximum ingredient costs per pizza, not prices: Cheese $5, Pepperoni $6, Vegetarian $6, Meat Lovers $7, Supreme $8. Meat Lovers is a proposed value for confirmation. Eaters always pay $5 all you can eat.
+3. Category ingredient budgets are maximum ingredient costs per pizza, not prices: Cheese $5, Pepperoni $6, Vegetarian $6, Meat Lovers $8, Supreme $8. Eaters always pay $5 all you can eat.
 4. A competition pizza must stay within its category budget. Exceeding the budget is not playing fair, and the pizza is not eligible for competition.
-5. Cooks may make any size pizza within the budget. Target size is 14 to 16 inches, undecided. Size versus ingredient quality is part of the competition: within the same budget, a bigger pizza or finer ingredients is a choice judges may reward either way.
+5. Cooks may make any size pizza within the budget, but people should expect 8-inch pizzas. A cook may make a bigger pizza if he wants. Size versus ingredient quality is part of the competition: within the same budget, a bigger pizza or finer ingredients is a choice judges may reward either way.
 6. Eaters and ingredient-bringers contribute at least $5. Cash, listed ingredients, or both.
 7. The app publishes the necessary ingredients list with a value for each item. Ingredients you bring are credited at their listed value against your $5. Bring less than $5 worth, add cash for the difference. Bring $5 or more worth, you are covered.
 8. To qualify as a cook, you must cook a real pizza at the event, from the provided ingredients. A pizza that is not genuine does not qualify. Entering the judged competition is optional.
