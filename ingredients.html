@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingredients on hand — Block Party Pizza Competition</title>
+<!--
+  Ingredients on hand. Data lives in ingredients.json, next to this file.
+  To update for the next event, edit ingredients.json only. This page
+  draws the receipt from that file with code, no picture of a receipt.
+  No external dependencies.
+-->
+<style>
+  :root {
+    --night: #101018;
+    --panel: #1b1b2e;
+    --cream: #fff6e3;
+    --gold: #ffb700;
+    --teal: #2ec4b6;
+    --muted: #b9b9cc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--cream);
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.02em; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  a { color: var(--gold); }
+  .back { display: inline-block; margin-bottom: 20px; }
+  .tabs { display: flex; gap: 10px; margin-bottom: 14px; }
+  .tabs button {
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--cream);
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .tabs button.active { background: var(--gold); color: #1a1200; }
+  .hint { color: var(--muted); margin: 0 0 20px; }
+  .note {
+    background: var(--panel);
+    border-left: 5px solid var(--teal);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 0 0 20px;
+    color: var(--cream);
+  }
+  .note p { margin: 6px 0; }
+  .muted { color: var(--muted); }
+  /* Thermal receipt view: narrow paper column, monospace, drawn by code */
+  .receipt {
+    max-width: 420px;
+    margin: 0 auto 24px;
+    background: #fffef8;
+    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 3px);
+    color: #111;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.88rem;
+    padding: 24px 14px 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.55);
+  }
+  .receipt .wm-word {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 1.7rem;
+    letter-spacing: -1px;
+    text-align: center;
+    margin: 0 0 4px;
+  }
+  .receipt .center { text-align: center; }
+  .receipt .row { display: flex; justify-content: space-between; gap: 8px; }
+  .receipt .row .amt { white-space: nowrap; }
+  .receipt .rule { border: none; border-top: 1px dashed #888; margin: 12px 0; }
+  .receipt .section { font-weight: bold; margin-top: 14px; }
+  .receipt .total { font-weight: bold; font-size: 1.02rem; }
+  .ritem { display: block; color: #111; text-decoration: none; padding: 1px 0; }
+  .ritem:hover, .ritem:focus { background: #f2ecd8; outline: none; }
+  .receipt .desc-line { padding-left: 16px; margin-bottom: 6px; }
+  .receipt .voided { margin: 2px 0 8px; }
+  /* Descriptive list view */
+  .group { margin-bottom: 28px; }
+  .group h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.25rem; margin: 0 0 10px; }
+  .itemlink { display: block; color: inherit; text-decoration: none; }
+  .item {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 10px 0;
+  }
+  .itemlink:hover .item, .itemlink:focus .item { background: #23233a; outline: none; }
+  .item .top { display: flex; justify-content: space-between; gap: 12px; }
+  .item .amt { white-space: nowrap; font-weight: 800; color: var(--gold); }
+  .item p { margin: 4px 0; }
+  .totals {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 24px;
+  }
+  .totals .row { display: flex; justify-content: space-between; gap: 12px; margin: 6px 0; }
+  .totals .row.big { font-weight: 800; color: var(--gold); font-size: 1.1rem; }
+  #error { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">&larr; Back to the competition page</a>
+  <h1>Ingredients on hand</h1>
+  <p class="sub" id="eventLine">Loading the receipt…</p>
+
+  <div class="tabs">
+    <button id="btnReceipt" class="active" type="button">Receipt</button>
+    <button id="btnList" type="button">List</button>
+  </div>
+  <p class="hint">Tap any line to open that item on Walmart.</p>
+
+  <div class="note" id="error">
+    <p><strong>Could not load ingredients.json.</strong></p>
+    <p>This page reads its data from ingredients.json sitting next to it, and some browsers block that load when the page is opened straight from disk. Serve it from the site (for example GitHub Pages) and it will load. The data file itself is unchanged.</p>
+  </div>
+
+  <div id="receiptView"></div>
+  <div id="listView" style="display:none"></div>
+
+  <div class="note">
+    <p>Item lines link to Walmart search for that item, so you can check the current listing. Prices shown are what was actually paid on Oct 24, 2026, not current Walmart prices.</p>
+    <p>To update for the next event, edit <strong>ingredients.json</strong> only: change a quantity or price, add or remove an item, or set its category to event, personal, or home. Every total on this page recomputes itself.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var receiptEl = document.getElementById('receiptView');
+  var listEl = document.getElementById('listView');
+  var errorEl = document.getElementById('error');
+  var eventLine = document.getElementById('eventLine');
+  var btnReceipt = document.getElementById('btnReceipt');
+  var btnList = document.getElementById('btnList');
+
+  function money(n) { return '$' + n.toFixed(2); }
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  }
+
+  function walmartLink(item) {
+    var q = item.upc ? item.upc : item.search;
+    if (!q) return null;
+    return 'https://www.walmart.com/search?q=' + encodeURIComponent(q);
+  }
+
+  function lineTotal(item) {
+    if (item.price === null || item.price === undefined) return null;
+    return item.qty * item.price;
+  }
+
+  function wmRow(left, right) {
+    return '<div class="row"><span>' + left + '</span><span class="amt">' + right + '</span></div>';
+  }
+
+  function render(data) {
+    var items = data.items || [];
+    var store = data.store || {};
+    var taxRate = store.tax_rate || 0;
+    eventLine.textContent = data.event || 'Ingredients on hand';
+
+    var receiptItems = items.filter(function (i) { return i.category === 'event' || i.category === 'personal'; });
+    var eventItems = items.filter(function (i) { return i.category === 'event'; });
+    var personalItems = items.filter(function (i) { return i.category === 'personal'; });
+    var homeItems = items.filter(function (i) { return i.category === 'home'; });
+
+    var eventSubtotal = 0, taxableSubtotal = 0, personalSubtotal = 0, itemCount = 0;
+    eventItems.forEach(function (i) {
+      var t = lineTotal(i);
+      if (t !== null) {
+        eventSubtotal += t;
+        if (i.taxable) taxableSubtotal += t;
+      }
+      itemCount += i.qty;
+    });
+    personalItems.forEach(function (i) {
+      var t = lineTotal(i);
+      if (t !== null) personalSubtotal += t;
+      itemCount += i.qty;
+    });
+    var tax = Math.round(taxableSubtotal * taxRate * 100) / 100;
+    var eventTotal = Math.round((eventSubtotal + tax) * 100) / 100;
+    var receiptSubtotal = Math.round((eventSubtotal + personalSubtotal) * 100) / 100;
+    var grandTotal = Math.round((receiptSubtotal + tax) * 100) / 100;
+
+    /* Thermal receipt view: original Walmart lines plus better descriptions */
+    var r = '';
+    r += '<div class="receipt">';
+    r += '<p class="wm-word">Walmart</p>';
+    r += '<p class="center">WM Supercenter<br>' + esc(store.phone || '') + ' Mgr. ' + esc(store.mgr || '') + '<br>' + esc(String(store.address || '').toUpperCase()) + '<br>ST# ' + esc(store.st || '') + ' OP# ' + esc(store.op || '') + ' TE# ' + esc(store.te || '') + ' TR# ' + esc(store.tr || '') + '</p>';
+    r += '<p class="center"># ITEMS SOLD ' + itemCount + '<br>TC# ' + esc(store.tc || '') + '</p>';
+    r += '<hr class="rule">';
+    receiptItems.forEach(function (i) {
+      var link = walmartLink(i);
+      var flag = i.taxable ? '' : ' F';
+      var body = '';
+      if (i.wm_multi) {
+        var total = lineTotal(i);
+        body += wmRow(esc(i.wm) + ' ' + esc(i.upc) + flag, '');
+        body += wmRow('&nbsp;&nbsp;' + i.qty + ' AT 1 FOR ' + i.price.toFixed(2), money(total) + ' ' + esc(i.code));
+      } else {
+        for (var k = 0; k < i.qty; k++) {
+          body += wmRow(esc(i.wm) + ' ' + esc(i.upc) + flag, i.price.toFixed(2) + ' ' + esc(i.code));
+        }
+      }
+      body += '<div class="desc-line">' + esc(i.name) + ' - ' + esc(i.desc) + '</div>';
+      if (link) {
+        r += '<a class="ritem" href="' + link + '" target="_blank" rel="noopener">' + body + '</a>';
+      } else {
+        r += '<div class="ritem">' + body + '</div>';
+      }
+      if (i.wm_voided) {
+        r += '<div class="voided">** VOIDED ENTRY **<div class="desc-line">Duplicate ring of the red onion, removed, not charged</div></div>';
+      }
+    });
+    r += '<hr class="rule">';
+    r += wmRow('SUBTOTAL', money(receiptSubtotal));
+    r += wmRow('TAX1 ' + (taxRate * 100).toFixed(4) + '%', money(tax));
+    r += '<div class="row total"><span>TOTAL</span><span class="amt">' + money(grandTotal) + '</span></div>';
+    r += '<hr class="rule">';
+    r += wmRow('EVENT STOCK', money(eventTotal));
+    r += wmRow('PERSONAL', money(personalSubtotal));
+    r += '<p class="center">ITEMS: ' + itemCount;
+    if (store.receipt_items_sold) {
+      r += itemCount === store.receipt_items_sold ? ' (matches the Walmart receipt)' : ' (receipt says ' + store.receipt_items_sold + ')';
+    }
+    r += '</p>';
+    if (homeItems.length) {
+      r += '<p class="section">ALREADY ON HAND AT HOME</p>';
+      homeItems.forEach(function (i) {
+        var link = walmartLink(i);
+        var body = wmRow(i.qty + ' x ' + esc(i.name), 'on hand') + '<div class="desc-line">' + esc(i.desc) + '</div>';
+        if (link) {
+          r += '<a class="ritem" href="' + link + '" target="_blank" rel="noopener">' + body + '</a>';
+        } else {
+          r += '<div class="ritem">' + body + '</div>';
+        }
+      });
+    }
+    r += '<hr class="rule">';
+    r += '<p class="center">Thank you!<br>Give us feedback @ survey.walmart.com<br>ID #: ' + esc(store.survey_id || '') + '</p>';
+    r += '</div>';
+    receiptEl.innerHTML = r;
+
+    /* Descriptive list view, whole rows linked */
+    function groupHtml(title, group) {
+      if (!group.length) return '';
+      var h = '<div class="group"><h2>' + title + '</h2>';
+      group.forEach(function (i) {
+        var t = lineTotal(i);
+        var link = walmartLink(i);
+        var inner = '<div class="item"><div class="top"><span>' + esc(i.name) + '</span><span class="amt">' + (t === null ? 'on hand' : money(t)) + '</span></div>';
+        var bits = [];
+        bits.push(i.qty + ' ' + (i.qty === 1 ? i.unit : i.unit + 's'));
+        if (t !== null) bits.push(money(i.price) + ' each');
+        if (i.desc) bits.push(esc(i.desc));
+        inner += '<p class="muted">' + bits.join(' &middot; ') + '</p></div>';
+        if (link) {
+          h += '<a class="itemlink" href="' + link + '" target="_blank" rel="noopener">' + inner + '</a>';
+        } else {
+          h += inner;
+        }
+      });
+      h += '</div>';
+      return h;
+    }
+    var l = '';
+    l += groupHtml('Event stock', eventItems);
+    l += groupHtml('Personal, not event stock', personalItems);
+    l += groupHtml('Already on hand at home', homeItems);
+    l += '<div class="totals">';
+    l += '<div class="row"><span>Event subtotal</span><span>' + money(eventSubtotal) + '</span></div>';
+    l += '<div class="row"><span>Tax</span><span>' + money(tax) + '</span></div>';
+    l += '<div class="row big"><span>Event total</span><span>' + money(eventTotal) + '</span></div>';
+    if (personalItems.length) l += '<div class="row"><span>Personal subtotal</span><span>' + money(personalSubtotal) + '</span></div>';
+    l += '<div class="row big"><span>Grand total paid</span><span>' + money(grandTotal) + '</span></div>';
+    l += '<div class="row"><span>Items on the receipt</span><span>' + itemCount + '</span></div>';
+    l += '</div>';
+    listEl.innerHTML = l;
+  }
+
+  btnReceipt.addEventListener('click', function () {
+    receiptEl.style.display = '';
+    listEl.style.display = 'none';
+    btnReceipt.classList.add('active');
+    btnList.classList.remove('active');
+  });
+  btnList.addEventListener('click', function () {
+    receiptEl.style.display = 'none';
+    listEl.style.display = '';
+    btnList.classList.add('active');
+    btnReceipt.classList.remove('active');
+  });
+
+  fetch('ingredients.json')
+    .then(function (res) { if (!res.ok) throw new Error('bad response'); return res.json(); })
+    .then(render)
+    .catch(function () {
+      errorEl.style.display = '';
+      eventLine.textContent = 'Ingredients on hand';
+    });
+})();
+</script>
+</body>
+</html>
