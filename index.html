@@ -3,21 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Block Party Pizza Competition — South Tower District, Fresno</title>
-<meta property="og:title" content="Block Party Pizza Competition — South Tower District, Fresno">
-<meta property="og:description" content="Verified skill, real stakes. Cooks eat free, ovens provided, cash prizes, and all money goes back to the cooks.">
+<title>HOT &amp; HAPPY PIZZA! — Whole Pies $10, Tower District, Fresno</title>
+<meta property="og:title" content="HOT &amp; HAPPY PIZZA! — Whole Pies $10, Tower District, Fresno">
+<meta property="og:description" content="Whole pizzas, $10 each, assembled and baked to order in about a minute from a pushcart in the Tower District. Cheese, cheese and pepperoni, plus one rotating pie.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pizza.ahightower.com/">
-<meta property="og:image" content="https://pizza.ahightower.com/block-party-pizza-flyer.webp">
-<meta property="og:image:alt" content="Block Party Pizza Competition flyer">
+<meta property="og:image" content="https://pizza.ahightower.com/ooni-karu-2-pro-showcase.jpg">
+<meta property="og:image:alt" content="Ooni Karu 2 Pro pizza oven">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pizza.ahightower.com/block-party-pizza-flyer.webp">
+<meta name="twitter:image" content="https://pizza.ahightower.com/ooni-karu-2-pro-showcase.jpg">
 <!--
-  HOT & HAPPY PIZZA! — Block Party Pizza Competition
-  Version 0.1: presentation page today, app interface tomorrow.
-  The sections below are laid out as the future app views:
-  Cook RSVP, ingredient lists, barcode check-in, and slice judging
-  will attach to the marked hooks as the app is built.
+  HOT & HAPPY PIZZA! — selling pizzas in the Tower District
+  Version 0.2: selling first. The Block Party Pizza Competition
+  is now a separate community event, described at the bottom.
+  Selling runs under a Compact Mobile Food Operation (CMFO):
+  a non-motorized pushcart, one person, whole pies only.
+  Permit application in progress; CMFO packet received
+  November 6, 2026 from Fresno County Environmental Health.
   No external dependencies: this file works from any static host.
 -->
 <style>
@@ -40,7 +42,6 @@
     line-height: 1.55;
   }
   .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; }
-  /* Arcade 3D display type: stacked shadows, no webfont needed. */
   .display {
     font-weight: 900;
     letter-spacing: 0.01em;
@@ -103,7 +104,6 @@
   th { text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--gold); }
   tr:last-child td { border-bottom: none; }
   td.num { font-weight: 800; color: var(--gold); white-space: nowrap; }
-  .flag { color: var(--gold); font-size: 0.9rem; }
   ul { margin: 8px 0; padding-left: 22px; }
   li { margin: 6px 0; }
   .callout {
@@ -128,143 +128,84 @@
 <div class="wrap">
 
   <header>
-    <h1 class="display">Block Party Pizza Competition</h1>
-    <p class="sub">South Tower District, Fresno &middot; Night Block Party<br>
-    Run by the nonprofit <strong>HOT &amp; HAPPY PIZZA!</strong> &middot; Nobody takes a profit.</p>
+    <h1 class="display">HOT &amp; HAPPY PIZZA!</h1>
+    <p class="sub">Whole pizzas, baked to order in the Tower District, Fresno<br>
+    One person, one pushcart, one price.</p>
     <div class="badges">
-      <span class="badge">$5 ALL YOU CAN EAT</span>
-      <span class="badge alt">OVENS PROVIDED</span>
-      <span class="badge alt">EVERYONE COMES OUT AHEAD</span>
+      <span class="badge">$10 A WHOLE PIE</span>
+      <span class="badge alt">BAKED TO ORDER, ABOUT A MINUTE</span>
+      <span class="badge alt">TOWER DISTRICT</span>
     </div>
   </header>
 
-  <!-- First live instance: Monday night, October 26, 2026 -->
-  <h2>Monday night: the first one</h2>
-  <p><strong>Monday night, October 26, 2026, in front of my house.</strong> Hightower's, in the South Tower District, 721 E La Sierra Dr, Fresno, CA 93728. This is the first instance of the Block Party Pizza Competition: small, live, and in the open.</p>
-  <p>This night is <strong>in honor of Kyle Kirkland</strong>, candidate for Congress in California's 21st District. It celebrates the recent announcements from President Trump and Nick Shirley: the Fraud Whistleblower Incentive Program, with an announced 1% commission on money recovered from fraud. Fraudsters are being taken down, and now there is a financial incentive to expose the fraud.</p>
-  <p>Kyle's opponent endorses fraud, backing fraudulent documents and taking money from the farm workers union, and calls that "community." We are doing a real community instead: <strong>law-abiding people, putting their own money up to prove they are the best pizza cook</strong>. Neighbors, cooking in the open, backing their skill with their own cash. Same model as the rest of this page: $5 a head, all you can eat, cooks eat free, stakes optional and declared before the pizza is built.</p>
-  <p class="muted">First instance, and a test run: we may not collect any money, and if only a couple of people show up, that is fine. More to come.</p>
-  <p>I am keeping it simple on my side: ice water is provided, and drinks and smokes are BYO.</p>
-  <p><a href="ingredients.html" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#ffb700;color:#1a1200;font-weight:800;text-decoration:none;">Ingredients on hand: receipt</a></p>
+  <h2>The menu</h2>
+  <p><strong>Whole pies only, $10 each. No slices.</strong> Three or four offerings a night, and the size adjusts to the topping: a cheese pie is bigger, a pie with pricier toppings starts with less dough. No inches on the menu.</p>
+  <table>
+    <tr><th>Pie</th><th>Price</th><th>Notes</th></tr>
+    <tr><td>Cheese</td><td class="num">$10</td><td>The baseline.</td></tr>
+    <tr><td>Cheese and pepperoni</td><td class="num">$10</td><td>The other baseline. Pre-sliced pepperoni.</td></tr>
+    <tr><td>Rotating pie</td><td class="num">$10</td><td>One more offering, changes with demand.</td></tr>
+  </table>
+  <p><strong>Ingredients are capped at $2.50 a pie.</strong> That is what keeps a $10 pie working. No fresh produce, no raw meat, no sausage.</p>
 
-  <figure>
-    <img src="nick-shirley-and-kyle-kirkland.webp" alt="Nick Shirley with Kyle Kirkland">
-    <figcaption>Kyle Kirkland with Nick Shirley, taken the same day as the photo below.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="aaron-and-kyle-kirkland.webp" alt="Aaron Hightower with Kyle Kirkland">
-    <figcaption>Aaron with Kyle Kirkland. This event promotes Kyle Kirkland for Congress, California District 21.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="club-one-pepperoni-pizza.webp" alt="Pepperoni pizza at Club One Casino">
-    <figcaption>The standard: the pepperoni pizza served at Club One Casino, the casino Kyle runs.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="block-party-pizza-flyer.webp" alt="Block Party Pizza Competition flyer">
-    <figcaption>The flyer. One price in the whole event: $5 a head, all you can eat.</figcaption>
-  </figure>
-
-  <h2>The oven</h2>
-  <figure>
-    <img src="ooni-karu-2-pro-showcase.jpg" alt="Ooni Karu 2 Pro pizza oven">
-    <figcaption>The oven for Monday night: Ooni Karu 2 Pro, over $1,000 of top-of-the-line pizza oven.</figcaption>
-  </figure>
-  <p>This is not a kitchen oven. This is a 950 degree, multi-fuel, digitally controlled pizza oven that cooks a pizza in about 60 seconds, and it is the main attraction. Monday night runs on propane, provided, to keep the first night simple.</p>
-  <p><a href="oven.html" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#ffb700;color:#1a1200;font-weight:800;text-decoration:none;">Full details about this amazing oven</a></p>
-
-  <!-- v0.1 hook: the three entry views of the future app -->
-  <h2>Three ways in</h2>
+  <h2>How it works</h2>
+  <p>You order, the pie is assembled to order, baked to order in about a minute, and served immediately. Nothing is cooked in advance, nothing is held for later sale, and food left at the end of the day is disposed of.</p>
   <div class="cards">
     <div class="card">
-      <h3>Cook</h3>
-      <p>Ingredients free. Ovens provided. <strong>Cooks eat free.</strong> Win prizes too.</p>
-      <p class="muted">Cooks are not paid labor. A cook's benefit is eating free and cooking with ingredients provided free.</p>
+      <h3>Assemble</h3>
+      <p>Dough, sauce, cheese, topping, built on the cart when you order it.</p>
     </div>
     <div class="card">
-      <h3>Bring an ingredient</h3>
-      <p>Bring it from the list. It counts toward your $5.</p>
-      <p class="muted">Bring $5 or more in listed value and you are covered. Bring less and cash tops up the rest.</p>
+      <h3>Bake</h3>
+      <p>About a minute in the Ooni Karu 2 Pro, on propane, at high heat.</p>
     </div>
     <div class="card">
-      <h3>Just eat</h3>
-      <p>$5, all you can eat.</p>
-      <p class="muted">Nobody eats for zero. Every eater or bringer contributes at least $5 net, in cash, listed ingredients, or both.</p>
+      <h3>Serve</h3>
+      <p>Straight off the cart, hot, right away. That is the whole service.</p>
     </div>
   </div>
 
   <figure>
-    <img src="block-party-pizza-how-it-works.webp" alt="How the Block Party Pizza Competition works">
-    <figcaption>How it works: cook, bring, or just eat.</figcaption>
+    <img src="ooni-karu-2-pro-showcase.jpg" alt="Ooni Karu 2 Pro pizza oven">
+    <figcaption>The oven: Ooni Karu 2 Pro, multi-fuel, running on propane on the cart.</figcaption>
+  </figure>
+  <p><a href="oven.html" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#ffb700;color:#1a1200;font-weight:800;text-decoration:none;">Full details about this oven</a></p>
+
+  <figure>
+    <img src="club-one-pepperoni-pizza.webp" alt="Pepperoni pizza">
+    <figcaption>A pepperoni pie, the standard to aim for.</figcaption>
   </figure>
 
-  <h2>Where the money goes</h2>
-  <p>Eater money covers <strong>ingredients first</strong>. Whatever is left after costs joins the prizes. The books balance, nonprofit-style, and no profit is kept.</p>
-  <p>The reason $5 a head can cover it: the average eater eats less than a whole pizza. Slices across many pizzas, not one pizza per person, is what makes the math work.</p>
-  <div class="callout">
-    <strong>Tips are separate.</strong> Anybody can tip a cook if they want to. A tip is a gift, independent of the prizes and independent of how well the cook cooked. It is not a second scoreboard and it is not a payment.
-  </div>
+  <h2>Where to find the cart</h2>
+  <p>The cart is a non-motorized pushcart, pushed about half a mile from home to the Tower Theatre area, and pushed home after. It is stored at home after the county evaluates the storage site.</p>
+  <p class="muted">Hours and exact spot are posted in the High Tower District group when the cart is out. Early evening, not late night.</p>
 
-  <h2>Categories and budgets</h2>
-  <p>The figures below are <strong>maximum ingredient budgets per pizza, not prices</strong>. A competition pizza must stay inside its category budget. Go over, and it is not playing fair, and the pizza is not eligible.</p>
-  <table>
-    <tr><th>Category</th><th>Max budget</th><th>Notes</th></tr>
-    <tr><td>Pepperoni</td><td class="num">$6</td><td></td></tr>
-    <tr><td>Vegetarian</td><td class="num">$6</td><td></td></tr>
-    <tr><td>Meat Lovers</td><td class="num">$8</td><td></td></tr>
-    <tr><td>Supreme</td><td class="num">$8</td><td></td></tr>
-    <tr><td>Cheese</td><td class="num">$5</td><td>Broad: cheese pizza, cheesy bread, cheese dips and dipping sauces.</td></tr>
-  </table>
-  <p><strong>Size is free inside the budget</strong>, but people should expect 8-inch pizzas. A cook may make a bigger pizza if he wants. A bigger pizza or a smaller pizza with finer ingredients: that tradeoff is the skill judges weigh.</p>
-  <p><strong>Dough:</strong> scratch or bought. Piemonte's Italian Delicatessen dough (616 E Olive Ave, Fresno) is the app's known-quantity neighborhood baseline. Scratch dough is budgeted at flour, water, and yeast cost, and the savings may go elsewhere inside the category budget. A cook can win on recipe alone, and scratch can beat store-bought.</p>
-
-  <h2>The competition layer (optional)</h2>
-  <p>You can come, cook, and eat without ever entering it. The base event works fine on its own. If you do enter:</p>
+  <h2>Done the lawful way</h2>
+  <p>This is a Compact Mobile Food Operation (CMFO): limited food preparation only, one operator, no employees. The county packet was received November 6, 2026 from Fresno County Environmental Health, and the permit application is in progress. Nothing here is sold until the permit is in hand.</p>
   <ul>
-    <li>Staking is <strong>per pizza</strong>, declared in the app <strong>before</strong> you begin building that pizza. Enter none, one, or any number of your pizzas, at an independent amount per pizza.</li>
-    <li>Once committed, the stake is <strong>binding</strong>. You follow through whether the pizza comes out beautiful or not, so nobody stakes only the pizzas that already turned out great.</li>
-    <li>The stake sizes the prize. <strong>Skill decides the winner.</strong> A bigger stake does not buy a better score. There is <strong>no cap</strong> on prizes.</li>
-  </ul>
-
-  <!-- v0.1 hook: the slice judging view of the future app -->
-  <h2>Judging</h2>
-  <p>Judging happens in the app.</p>
-  <ul>
-    <li>Every pizza is cut into <strong>six slices</strong>, as near to equal as reasonably possible.</li>
-    <li>Each slice is judged <strong>independently, by the person eating it</strong>. One slice, one judgment. Slices can vary, so each earns its own score instead of the whole pizza getting one blanket number.</li>
-    <li>Each slice that is eaten counts with <strong>equal weight</strong> toward the pizza's judgment.</li>
-    <li>A slice nobody eats does <strong>not</strong> score a zero. It simply reduces the numerator by one. The pizza is judged only on the slices actually eaten.</li>
+    <li><strong>Plan check first:</strong> construction plans go to the county for review and approval before the cart is built or bought. Review takes up to 20 business days.</li>
+    <li><strong>No dough made on the cart, and no dough made at home.</strong> Dough balls come from a permitted food facility, with the agreement filed before the first sale.</li>
+    <li><strong>Everything on the cart, only on the cart:</strong> all food is held, stored, displayed, and served from the cart. No outside tables, no outside cooking.</li>
+    <li><strong>Commissary:</strong> the cart operates from a permitted commissary, for water, wastewater, cleaning, and storage, serviced at least every day it is used.</li>
+    <li><strong>On the cart:</strong> commercial-grade equipment, mechanical refrigeration at 41&deg;F or below, a handwashing sink, soap and paper towels, a 10 BC fire extinguisher, and a first-aid kit. Propane mounted to the cart.</li>
+    <li><strong>Food handler card:</strong> the operator holds a California Food Handler Card.</li>
   </ul>
   <div class="callout">
-    <strong>The slice math is the deal.</strong> Each slice is worth about $1, give or take. Six slices is about $6 of value. You paid $5. Eat a whole pizza and you came out ahead, on purpose.
+    <strong>What the cart does not do:</strong> no fresh produce, no raw meat, no sausage, no thawing, no cooling cooked food, no washing food, and no cooking for later use. That is what keeps it a limited-preparation operation.
   </div>
 
-  <!-- v0.1 hook: RSVP, ingredient lists, and barcode check-in views -->
-  <h2>The app</h2>
-  <ul>
-    <li><strong>RSVP:</strong> cooks RSVP as Cooks. Anyone bringing ingredients RSVPs against a cook's ingredient list.</li>
-    <li><strong>Cooks eat free.</strong> A cook who brings ingredients is reimbursed for them at listed value.</li>
-    <li><strong>Eaters can eat for free</strong> by bringing necessary ingredients off a cook's list, credited at listed value up to the $5.</li>
-    <li><strong>Each cook's list states, per item:</strong> the credited value (per ounce or per unit, like tomato sauce by the ounce), any minimum quality or brand requirement, and where it must be purchased to gain credit. No brand requirement stated means any brand qualifies. A picky cook may exclude a brand; a cook who is not picky may accept cupboard items and improvise with them. That improvisation is part of the skill.</li>
-    <li><strong>Value is set at the table.</strong> The app scans the barcode when the ingredient arrives, and the scan decides what it is worth and whether it qualifies at all. Nobody gains by bringing something the cook cannot use, and no cook gets an unfair deal.</li>
-    <li><strong>Cupboard and benefit purchases, lawfully:</strong> if you already have something in your cupboard and it is not expired, you can clear it out and eat on it. Nothing here asks anyone to break the law: your own things, your own lawful purchases, nothing expired.</li>
-    <li><strong>One frame of reference for value: Walmart prices.</strong> Prices go into the app at the beginning, taken from the Walmart app, manually or automated; the method does not matter. The Walmart price is the credited value regardless of where the item was purchased. Paid more than Walmart? You get Walmart credit, not what you paid. Found it cheaper than Walmart? You keep the margin. Bargain hunting is rewarded, not punished.</li>
-    <li><strong>The dough exception:</strong> items that cannot be found at Walmart, such as the dough, are listed from their neighborhood source.</li>
-  </ul>
-
-  <h2>Keeping the balance</h2>
-  <p>Eating more than average is covered socially: throw extra cash into ingredients, have a friend who eats less, or simply be OK with eating more than average. If everyone comes up short and wants more pizza than there is, that is the signal to <strong>scale everything up</strong>: more pizzas, more ingredients, keep everybody happy. No new rules, just more of the same thing.</p>
+  <h2>Also: the Block Party Pizza Competition</h2>
+  <p>Separate from selling, and not the same money: the Block Party Pizza Competition is a community event in the South Tower District, $5 a head, all you can eat, nonprofit-style, no profit kept. Cooks eat free, ingredients are free to cooks, and the judged competition is optional, with a stake declared before a pizza is built. Categories are Cheese $5, Pepperoni $6, Vegetarian $6, Meat Lovers $8, Supreme $8, as maximum ingredient budgets per pizza, not prices.</p>
+  <p class="muted">First test run: Monday night, October 26, 2026, in front of my house, 721 E La Sierra Dr, Fresno. More to come.</p>
+  <p><a href="ingredients.html" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#ffb700;color:#1a1200;font-weight:800;text-decoration:none;">Ingredients on hand: receipt</a></p>
 
   <h2>The point of it</h2>
-  <p>The constraints are the training. A cook who learns to make a great pizza inside a budget, on a declared stake, judged against other cooks doing the same, gets better every time. Repeat that across events and years, and the neighborhood produces connoisseurs. In ten years, the best pizza cooks in America come out of the Tower District, because practice under real economics is what makes mastery.</p>
-  <p class="muted">This competition is one facet of a larger platform, alongside CELLTOWER and the arcade game: verified skill, skill decides, voluntary stake sizes the win, real economic constraints, and reputation that compounds over time. The literacy transfers across facets.</p>
+  <p>One price, one cost cap, one cart, done right and done lawfully. A cook who learns to make a great pizza inside a budget gets better every time. In ten years, the best pizza cooks in America come out of the Tower District, because practice under real economics is what makes mastery.</p>
 
   <footer>
-    <p>Block Party Pizza Competition &middot; South Tower District, Fresno<br>
-    HOT &amp; HAPPY PIZZA! nonprofit &middot; No profit kept &middot; Everyone comes out ahead.</p>
-    <p>Version 0.1 &mdash; presentation today, app interface tomorrow.</p>
+    <p>HOT &amp; HAPPY PIZZA! &middot; Tower District, Fresno<br>
+    Whole pies $10 &middot; Baked to order &middot; CMFO permit application in progress.</p>
+    <p>Version 0.2 &mdash; selling first, competition second.</p>
   </footer>
 
 </div>
